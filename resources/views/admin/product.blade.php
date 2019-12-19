@@ -64,7 +64,7 @@
 											<button class="btn-danger update-one" id="{{$product->id}}"><i class="fas fa-edit"></i></button>
 										{{-- </a> --}}
 										{{-- <a href=""> --}}
-											<button class="btn-success delete-one" id="{{$product->id}}><i class="fas fa-trash-alt"></i></button>
+											<button class="btn-success delete-one" id="{{$product->id}}"><i class="fas fa-trash-alt"></i></button>
 										{{-- </a> --}}
 									</td>
 								</tr>
