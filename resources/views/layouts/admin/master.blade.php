@@ -11,6 +11,7 @@
   <link href="/admin/vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
   <link href="/admin/css/sb-admin.css" rel="stylesheet">
   <script src="/js/jquery-3.3.1.min.js"></script>
+  <script src="/ajax/admin-ajax.js"></script>
   @yield("script")
 </head>
 <body id="page-top">

@@ -12,7 +12,7 @@
           $("#product-name").text(product.name);
           $("#product-description").text(product.description);
           $("#product-price").text(product.price+"$ only");
-          $("#product-thumbnail").attr("src","/upload/"+product.thumbnail);
+          $("#product-thumbnail").attr("src","/storage/"+product.thumbnail);
           $("#modalLargeDefault").modal("show");
         },
         error: function(){
@@ -31,7 +31,7 @@
     @foreach($products as $product)
     <div class="col-12 col-sm-8 col-md-6 col-lg-3">
       <div class="card" id="{{$product->id}}">
-        <img class="card-img" src="/upload/{{$product->thumbnail}}" alt="Vans">
+        <img class="card-img" src="/storage/{{$product->thumbnail}}" alt="Vans">
         <div class="card-img-overlay d-flex justify-content-end">
           <a href="#" class="card-link text-danger like">
             <i class="fas fa-heart"></i>
@@ -62,15 +62,15 @@
           </div>
           <div class="modal-body">
             <table class="table">
-              <tr>
+              <tr style="border:hidden">
                 <th>Name</th>
                 <td id="product-name"></td>
               </tr>
-              <tr>
+              <tr style="border:hidden">
                   <th>Price</th>
                   <td id="product-price"></td>
                 </tr>
-                <tr>
+                <tr style="border:hidden">
                     <th>Description</th>
                     <td id="product-description"></td>
                 </tr>

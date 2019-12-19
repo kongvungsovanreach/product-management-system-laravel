@@ -10,6 +10,6 @@ $factory->define(Product::class, function (Faker $faker) {
         "name" =>$faker->firstNameMale,
         "description"=>$faker->sentence,
         "price"=>$faker->numberBetween($min = 200, $max = 1000),
-        "thumbnail"=>$faker->image("public/upload", 400, 400, 'cats', false)
+        "thumbnail"=>str_replace("storage/app/public/", "", $faker->image($dir = 'storage/app/public/upload', $width = 400, $height = 400,"cats"))
     ];
 });
