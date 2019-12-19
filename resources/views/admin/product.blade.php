@@ -1,144 +1,104 @@
 @extends("layouts.admin.master")
 @section("title", "Home Page")
 @section("script")
-  
+  <script>
+	  $(document).ready(function(){
+    $(".view-one").click(function(){
+      var id = $(this).attr("id");
+      $.ajax({
+        url:"/products/"+id,
+        method:"GET",
+        success: function(product){
+          $("#product-name").text(product.name);
+          $("#product-description").text(product.description);
+          $("#product-price").text(product.price+"$ only");
+          $("#product-thumbnail").attr("src","/upload/"+product.thumbnail);
+          $("#modalLargeDefault").modal("show");
+        },
+        error: function(){
+
+        }
+      })
+    })
+  })
+  </script>
 @endsection
 @section("content")
 <div class="limiter">
 		<div class="container-table100">
 			<div class="wrap-table100">
 				<div class="table100">
-					<table class="table">
+					<table class="table table-striped">
 						<thead>
 							<tr class="table100-head">
-								<th class="column1">Date</th>
-								<th class="column2">Order ID</th>
-								<th class="column3">Name</th>
+								<th class="column1">ID</th>
+								<th class="column2">Name</th>
+								<th class="column3">Description</th>
 								<th class="column4">Price</th>
-								<th class="column5">Quantity</th>
-								<th class="column6">Total</th>
+								<th class="column5">Profile</th>
+								<th class="column6">Action</th>
 							</tr>
 						</thead>
 						<tbody>
-								<tr>
-									<td class="column1">2017-09-29 01:22</td>
-									<td class="column2">200398</td>
-									<td class="column3">iPhone X 64Gb Grey</td>
-									<td class="column4">$999.00</td>
-									<td class="column5">1</td>
-									<td class="column6">$999.00</td>
+							@foreach($products as $product)
+								<tr id="view-all-row">
+									<td class="column1">{{$product->id}}</td>
+									<td class="column2">{{$product->name}}</td>
+									<td class="column3">{{$product->description}}</td>
+									<td class="column4">{{$product->price}} $</td>
+									<td class="column5">
+										<img id="thumbnail-view-all" src="/upload/{{$product->thumbnail}}" alt="">
+									</td>
+									<td class="column6">
+										{{-- <a href=""> --}}
+											<button class="btn-primary view-one" id="{{$product->id}}"><i class="fas fa-eye"></i></button>
+										{{-- </a> --}}
+										<a href="">
+											<button class="btn-danger"><i class="fas fa-edit"></i></button>
+										</a>
+										<a href="">
+											<button class="btn-success"><i class="fas fa-trash-alt"></i></button>
+										</a>
+									</td>
 								</tr>
-								<tr>
-									<td class="column1">2017-09-28 05:57</td>
-									<td class="column2">200397</td>
-									<td class="column3">Samsung S8 Black</td>
-									<td class="column4">$756.00</td>
-									<td class="column5">1</td>
-									<td class="column6">$756.00</td>
-								</tr>
-								<tr>
-									<td class="column1">2017-09-26 05:57</td>
-									<td class="column2">200396</td>
-									<td class="column3">Game Console Controller</td>
-									<td class="column4">$22.00</td>
-									<td class="column5">2</td>
-									<td class="column6">$44.00</td>
-								</tr>
-								<tr>
-									<td class="column1">2017-09-25 23:06</td>
-									<td class="column2">200392</td>
-									<td class="column3">USB 3.0 Cable</td>
-									<td class="column4">$10.00</td>
-									<td class="column5">3</td>
-									<td class="column6">$30.00</td>
-								</tr>
-								<tr>
-									<td class="column1">2017-09-24 05:57</td>
-									<td class="column2">200391</td>
-									<td class="column3">Smartwatch 4.0 LTE Wifi</td>
-									<td class="column4">$199.00</td>
-									<td class="column5">6</td>
-									<td class="column6">$1494.00</td>
-								</tr>
-								<tr>
-									<td class="column1">2017-09-23 05:57</td>
-									<td class="column2">200390</td>
-									<td class="column3">Camera C430W 4k</td>
-									<td class="column4">$699.00</td>
-									<td class="column5">1</td>
-									<td class="column6">$699.00</td>
-								</tr>
-								<tr>
-									<td class="column1">2017-09-22 05:57</td>
-									<td class="column2">200389</td>
-									<td class="column3">Macbook Pro Retina 2017</td>
-									<td class="column4">$2199.00</td>
-									<td class="column5">1</td>
-									<td class="column6">$2199.00</td>
-								</tr>
-								<tr>
-									<td class="column1">2017-09-21 05:57</td>
-									<td class="column2">200388</td>
-									<td class="column3">Game Console Controller</td>
-									<td class="column4">$999.00</td>
-									<td class="column5">1</td>
-									<td class="column6">$999.00</td>
-								</tr>
-								<tr>
-									<td class="column1">2017-09-19 05:57</td>
-									<td class="column2">200387</td>
-									<td class="column3">iPhone X 64Gb Grey</td>
-									<td class="column4">$999.00</td>
-									<td class="column5">1</td>
-									<td class="column6">$999.00</td>
-								</tr>
-								<tr>
-									<td class="column1">2017-09-18 05:57</td>
-									<td class="column2">200386</td>
-									<td class="column3">iPhone X 64Gb Grey</td>
-									<td class="column4">$999.00</td>
-									<td class="column5">1</td>
-									<td class="column6">$999.00</td>
-								</tr>
-								<tr>
-									<td class="column1">2017-09-22 05:57</td>
-									<td class="column2">200389</td>
-									<td class="column3">Macbook Pro Retina 2017</td>
-									<td class="column4">$2199.00</td>
-									<td class="column5">1</td>
-									<td class="column6">$2199.00</td>
-								</tr>
-								<tr>
-									<td class="column1">2017-09-21 05:57</td>
-									<td class="column2">200388</td>
-									<td class="column3">Game Console Controller</td>
-									<td class="column4">$999.00</td>
-									<td class="column5">1</td>
-									<td class="column6">$999.00</td>
-								</tr>
-								<tr>
-									<td class="column1">2017-09-19 05:57</td>
-									<td class="column2">200387</td>
-									<td class="column3">iPhone X 64Gb Grey</td>
-									<td class="column4">$999.00</td>
-									<td class="column5">1</td>
-									<td class="column6">$999.00</td>
-								</tr>
-								<tr>
-									<td class="column1">2017-09-18 05:57</td>
-									<td class="column2">200386</td>
-									<td class="column3">iPhone X 64Gb Grey</td>
-									<td class="column4">$999.00</td>
-									<td class="column5">1</td>
-									<td class="column6">$999.00</td>
-								</tr>
-								
+							@endforeach
 						</tbody>
 					</table>
+					<div>
+						{{$products->links()}}
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-
+	<div class="modal fade" id="modalLargeDefault" tabindex="-1" role="dialog" aria-labelledby="modalLargeDefaultLabel">
+		<div class="modal-dialog" role="document">
+		  <div class="modal-content">
+			<div class="modal-header">
+			  <h4 class="modal-title" id="modalLargeDefaultLabel">Product Detail Info</h4>
+			</div>
+			<div class="modal-body">
+			  <table class="table" style="border:hidden">
+				<tr style="border:hidden">
+				  <th>Name</th>
+				  <td id="product-name"></td>
+				</tr>
+				<tr style="border:hidden">
+					<th>Price</th>
+					<td id="product-price"></td>
+				  </tr>
+				  <tr>
+					  <th>Description</th>
+					  <td id="product-description"></td>
+				  </tr>
+			  </table>
+			  <img src="" alt="" id="product-thumbnail" style="width:100%; height:100%">
+			</div>
+			<div class="modal-footer">
+				<a href="#" class="btn btn-danger mt-3"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
+			</div>
+		  </div>
+		</div>
+	  </div>
 
 @endsection

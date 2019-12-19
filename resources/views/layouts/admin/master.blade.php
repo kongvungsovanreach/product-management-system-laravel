@@ -10,7 +10,7 @@
   <link href="/admin/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link href="/admin/vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
   <link href="/admin/css/sb-admin.css" rel="stylesheet">
-
+  <script src="/js/jquery-3.3.1.min.js"></script>
   @yield("script")
 </head>
 <body id="page-top">
@@ -92,16 +92,16 @@
       </li>
     </ul>
     @yield("content")
-    <div id="content-wrapper">
-      <footer class="sticky-footer">
-        <div class="container my-auto">
-          <div class="copyright text-center my-auto">
-            <span>Copyright © Your Website 2019</span>
-          </div>
+  </div>
+  <div id="content-wrapper">
+    <footer class="sticky-footer">
+      <div class="container my-auto">
+        <div class="copyright text-center my-auto">
+          <span>Copyright © Your Website 2019</span>
         </div>
-      </footer>
+      </div>
+    </footer>
 
-    </div>
   </div>
   <a class="scroll-to-top rounded" href="#page-top">
     <i class="fas fa-angle-up"></i>

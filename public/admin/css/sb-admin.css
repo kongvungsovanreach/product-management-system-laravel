@@ -10912,3 +10912,22 @@ body.sidebar-toggled footer.sticky-footer {
     width: calc(100% - 90px);
   }
 }
+
+.limiter {
+  width: 100% !important;
+  /* margin-bottom: 100px; */
+  margin: 10px 10px 100px 10px;
+}
+
+#thumbnail-view-all {
+  width: 70px;
+  height:70px;
+}
+
+#view-all-row td {
+  vertical-align: middle;
+}
+
+.column6 button {
+  border-radius: 50%;
+}
