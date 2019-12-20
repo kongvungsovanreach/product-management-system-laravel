@@ -27,8 +27,8 @@ function viewOne(id){
     $.ajax({
         url:"/api/admin/products/"+id,
         method:"GET",
-        success: function(product){
-            console.log(product)
+        success: function(data){
+            var product = data.data;
             $("#modalLargeDefault #product-name").text(product.name);
             $("#modalLargeDefault #product-description").text(product.description);
             $("#modalLargeDefault #product-price").text(product.price+"$ only");
@@ -46,7 +46,8 @@ function updateOne(id){
     $.ajax({
         url:"/api/admin/products/"+id,
         method:"GET",
-        success: function(product){
+        success: function(data){
+            var product = data.data;
             $("#updateModal #updateId").val(product.id);
             $("#updateModal #product-name input").val(product.name);
             $("#updateModal #product-description input").val(product.description);

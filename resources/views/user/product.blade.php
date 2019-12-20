@@ -2,18 +2,30 @@
 @section("title", "Home Page")
 @section("script")
   <script>
+    function showLoading(){
+      $body.addClass("loading");
+    }
+
+    function hideLoading(){
+      $body.removeClass("loading");
+    }
   $(document).ready(function(){
+    $body = $("body");
     $(".card").click(function(){
+      showLoading();
       var id = $(this).attr("id");
       $.ajax({
         url:"/api/user/products/"+id,
         method:"GET",
-        success: function(product){
+        success: function(data){
+          var product = data.data;
           $("#product-name").text(product.name);
           $("#product-description").text(product.description);
           $("#product-price").text(product.price+"$ only");
           $("#product-thumbnail").attr("src","/storage/"+product.thumbnail);
+          hideLoading();
           $("#modalLargeDefault").modal("show");
+          
         },
         error: function(){
 

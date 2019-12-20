@@ -20,22 +20,23 @@ class ApiAdminProductController extends BaseAdminApiController
 
     public function create()
     {
-        //
+        
     }
 
     public function store(Request $request)
     {
-        //
+        
     }
 
     public function show($id)
-    {
-        return Product::find($id);
+    {   
+        $product = Product::find($id);
+        return $this->sendShowSuccess(true, $product, "Produt fetch successfully!");
     }
 
     public function edit($id)
     {
-        //
+        
     }
 
     public function update(Request $request, $id)
@@ -52,7 +53,6 @@ class ApiAdminProductController extends BaseAdminApiController
             $dbUser->save();
             return $this->sendUpdateSuccess(true, Product::find($id), "Product update successfully!");
         }
-        
     }
 
     public function destroy($id)

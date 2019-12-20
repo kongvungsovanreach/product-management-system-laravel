@@ -2,11 +2,9 @@
 
 namespace App\Http\Controllers\user;
 
-use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 use App\Product;
 
-class ApiUserProductController extends Controller
+class ApiUserProductController extends BaseUserApiController
 {
     /**
      * Display a listing of the resource.
@@ -47,7 +45,8 @@ class ApiUserProductController extends Controller
      */
     public function show($id)
     {
-        return Product::find($id);
+        $product = Product::find($id);
+        return $this->sendShowSuccess(true, $product, "Produt fetch successfully!");
     }
 
     /**

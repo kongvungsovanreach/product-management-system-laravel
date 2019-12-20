@@ -7,6 +7,15 @@ use App\Http\Controllers\Controller;
 
 class BaseAdminApiController extends Controller
 {
+    public function sendShowSuccess($status , $data, $message){
+        $response = [
+            "status" => $status,
+            "message" => $message,
+            "data" => $data
+        ];
+        return response()->json($response, 200);
+    }
+    
     public function sendFetchSuccess($status , $data, $message){
         $response = [
             "status" => $status,

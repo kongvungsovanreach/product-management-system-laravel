@@ -78,12 +78,12 @@
         </a>
       </li>
       <li class="nav-item">
-            <a class="nav-link" href="charts.html">
+            <a class="nav-link" href="/admin/products">
               <i class="fab fa-product-hunt"></i>
               <span>Products</span></a>
           </li>
       <li class="nav-item">
-        <a class="nav-link" href="charts.html">
+        <a class="nav-link" href="/admin/insert">
           <i class="fas fa-plus-circle"></i>
           <span>Insert</span></a>
       </li>
