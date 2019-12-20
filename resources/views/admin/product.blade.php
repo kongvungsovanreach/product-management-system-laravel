@@ -45,9 +45,9 @@
 <div class="limiter">
 		<div class="container-table100">
 			<div class="wrap-table100">
-				<div class="table100">
-					<table class="table table-striped">
-						<thead>
+				<div class="table100 table-responsive table-striped">
+					<table class="table" style="border:1px solid gray">
+						<thead class="thead-dark">
 							<tr class="table100-head">
 								<th class="column1">ID</th>
 								<th class="column2">Name</th>

@@ -2,13 +2,13 @@
 @section("title", "Home Page")
 @section("script")
   <script>
-    function showLoading(){
-      $body.addClass("loading");
-    }
+  function showLoading(){
+    $body.addClass("loading");
+  }
 
-    function hideLoading(){
-      $body.removeClass("loading");
-    }
+  function hideLoading(){
+    $body.removeClass("loading");
+  }
   $(document).ready(function(){
     $body = $("body");
     $(".card").click(function(){
@@ -25,17 +25,13 @@
           $("#product-thumbnail").attr("src","/storage/"+product.thumbnail);
           hideLoading();
           $("#modalLargeDefault").modal("show");
-          
         },
         error: function(){
-
         }
       })
     })
   })
   </script>
-
-
 @endsection
 @section("content")
 <div class="container">
@@ -69,7 +65,6 @@
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"></button>
             <h4 class="modal-title" id="modalLargeDefaultLabel">Product Detail Info</h4>
           </div>
           <div class="modal-body">
@@ -97,6 +92,4 @@
     </div>
   </div>
 </div>
-
-
 @endsection

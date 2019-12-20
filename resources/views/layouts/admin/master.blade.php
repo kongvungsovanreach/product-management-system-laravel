@@ -9,6 +9,8 @@
   <title>Admin PMS - @yield("title")</title>
   <link href="/admin/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link href="/admin/vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
+  @yield("style")
+  
   <link href="/admin/css/sb-admin.css" rel="stylesheet">
   <script src="/js/jquery-3.3.1.min.js"></script>
   <script src="/ajax/admin-ajax.js"></script>
@@ -83,7 +85,7 @@
               <span>Products</span></a>
           </li>
       <li class="nav-item">
-        <a class="nav-link" href="/admin/insert">
+        <a class="nav-link" href="/admin/products/create">
           <i class="fas fa-plus-circle"></i>
           <span>Insert</span></a>
       </li>

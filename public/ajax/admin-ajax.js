@@ -1,11 +1,10 @@
-
 function renderNewPage(page){
     showLoading()
     $.ajax({
         url: "/api/admin/products?page="+page,
         method: "GET",
         success: function(products){
-            $("#index-tbody").empty().html(products.data)
+            $("#index-tbody").empty().html(products.data);
             hideLoading();
         },
         error: function(err){
@@ -13,6 +12,7 @@ function renderNewPage(page){
         }
     })
 }
+
 function showLoading(){
     $body.addClass("loading");
 }
@@ -20,7 +20,6 @@ function showLoading(){
 function hideLoading(){
     $body.removeClass("loading");
 }
-
 
 function viewOne(id){
     showLoading();
@@ -86,6 +85,19 @@ function chooseNewImage(){
 
 function pick_image(input) {
     var profile = document.querySelector('#updateModal #product-thumbnail');
+    var reader = new FileReader();
+    reader.onloadend = function () {
+      profile.src = reader.result;
+    }
+    if (input.files[0]) {
+      reader.readAsDataURL(input.files[0]);
+    } else {
+      profile.src = "";
+    }
+  }
+
+  function pick_image_insert(input) {
+    var profile = document.querySelector('#product-thumbnail');
     var reader = new FileReader();
     reader.onloadend = function () {
       profile.src = reader.result;

@@ -17,7 +17,7 @@ class AdminProductController extends Controller
 
     public function create()
     {
-        //
+        return view("admin.insert");
     }
 
     public function store(Request $request)
