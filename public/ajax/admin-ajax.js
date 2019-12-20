@@ -3,7 +3,7 @@ function renderNewPage(page){
         url: "/api/admin/products?page="+page,
         method: "GET",
         success: function(products){
-            $("tbody").empty().html(products.data)
+            $("#index-tbody").empty().html(products.data)
         },
         error: function(err){
 
@@ -16,6 +16,7 @@ function viewOne(id){
         url:"/api/admin/products/"+id,
         method:"GET",
         success: function(product){
+            console.log(product)
             $("#modalLargeDefault #product-name").text(product.name);
             $("#modalLargeDefault #product-description").text(product.description);
             $("#modalLargeDefault #product-price").text(product.price+"$ only");

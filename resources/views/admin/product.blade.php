@@ -3,17 +3,18 @@
 @section("script")
   <script>
 	$(document).ready(function(){
-		$(".view-one").on("click",function(){
+		$(document).on("click",".view-one",function(){
 			var id = $(this).attr("id");
 			viewOne(id);
+			console.log(id)
 		})
 
-		$(".update-one").click(function(){
+		$(document).on("click",".update-one",function(){
 			var id = $(this).attr("id");
 			updateOne(id);
 		})
 
-		$(".delete-one").click(function(){
+		$(document).on("click",".delete-one",function(){
 			var id = $(this).attr("id");
 			deleteOne(id);
 		})
@@ -56,7 +57,7 @@
 								<th class="column6">Action</th>
 							</tr>
 						</thead>
-						<tbody>
+						<tbody id="index-tbody">
 							@foreach($products as $product)
 								<tr id="view-all-row" class="delete-row-{{$product->id}}">
 									<td class="column1">{{$product->id}}</td>
