@@ -12,6 +12,7 @@
   <link href="/admin/css/sb-admin.css" rel="stylesheet">
   <script src="/js/jquery-3.3.1.min.js"></script>
   <script src="/ajax/admin-ajax.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   @yield("script")
 </head>
 <body id="page-top">
@@ -78,13 +79,13 @@
       </li>
       <li class="nav-item">
             <a class="nav-link" href="charts.html">
-              <i class="fas fa-fw fa-chart-area"></i>
-              <span>Page</span></a>
+              <i class="fab fa-product-hunt"></i>
+              <span>Products</span></a>
           </li>
       <li class="nav-item">
         <a class="nav-link" href="charts.html">
-          <i class="fas fa-fw fa-chart-area"></i>
-          <span>Charts</span></a>
+          <i class="fas fa-plus-circle"></i>
+          <span>Insert</span></a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="tables.html">
@@ -128,13 +129,7 @@
   <script src="/admin/vendor/jquery/jquery.min.js"></script>
   <script src="/admin/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="/admin/vendor/jquery-easing/jquery.easing.min.js"></script>
-  <script src="/admin/vendor/chart.js/Chart.min.js"></script>
-  <script src="/admin/vendor/datatables/jquery.dataTables.js"></script>
-  <script src="/admin/vendor/datatables/dataTables.bootstrap4.js"></script>
   <script src="/admin/js/sb-admin.min.js"></script>
-  <script src="/admin/js/demo/datatables-demo.js"></script>
-  <script src="/admin/js/demo/chart-area-demo.js"></script>
-
 </body>
 
 </html>

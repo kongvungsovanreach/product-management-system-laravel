@@ -1,6 +1,19 @@
+function renderNewPage(page){
+    $.ajax({
+        url: "/api/admin/products?page="+page,
+        method: "GET",
+        success: function(products){
+            $("tbody").empty().html(products.data)
+        },
+        error: function(err){
+
+        }
+    })
+}
+
 function viewOne(id){
     $.ajax({
-        url:"/products/"+id,
+        url:"/api/admin/products/"+id,
         method:"GET",
         success: function(product){
             $("#modalLargeDefault #product-name").text(product.name);
@@ -16,7 +29,7 @@ function viewOne(id){
 }
 function updateOne(id){
     $.ajax({
-        url:"/products/"+id,
+        url:"/api/admin/products/"+id,
         method:"GET",
         success: function(product){
             $("#updateModal #updateId").val(product.id);
@@ -33,11 +46,15 @@ function updateOne(id){
 }
 
 function deleteOne(id){
+    console.log(id)
     $.ajax({
-        url:"/products/"+id,
+        url:"/api/admin/products/"+id,
         method:"DELETE",
         success: function(data){
-            alert(data);
+            swal({
+                title: data.message
+            });
+            $(".delete-row-"+id).remove();
         },
         error: function(err){
             console.log(err)
@@ -79,6 +96,9 @@ function pick_image(input) {
         success: function(data){
             $("#updateModal").modal("hide");
             changeDataAfterUpdate(data.data);
+            swal({
+                title: data.message
+            })
         },
         error: function(err){
             console.log(err)
