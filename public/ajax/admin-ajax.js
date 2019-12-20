@@ -1,17 +1,29 @@
+
 function renderNewPage(page){
+    showLoading()
     $.ajax({
         url: "/api/admin/products?page="+page,
         method: "GET",
         success: function(products){
             $("#index-tbody").empty().html(products.data)
+            hideLoading();
         },
         error: function(err){
 
         }
     })
 }
+function showLoading(){
+    $body.addClass("loading");
+}
+
+function hideLoading(){
+    $body.removeClass("loading");
+}
+
 
 function viewOne(id){
+    showLoading();
     $.ajax({
         url:"/api/admin/products/"+id,
         method:"GET",
@@ -22,6 +34,7 @@ function viewOne(id){
             $("#modalLargeDefault #product-price").text(product.price+"$ only");
             $("#modalLargeDefault #product-thumbnail").attr("src","/storage/"+product.thumbnail);
             $("#modalLargeDefault").modal("show");
+            hideLoading();
         },
         error: function(err){
             console.log(err)
@@ -29,6 +42,7 @@ function viewOne(id){
     })
 }
 function updateOne(id){
+    showLoading();
     $.ajax({
         url:"/api/admin/products/"+id,
         method:"GET",
@@ -39,6 +53,7 @@ function updateOne(id){
             $("#updateModal #product-price input").val(product.price);
             $("#updateModal #product-thumbnail").attr("src","/storage/"+product.thumbnail);
             $("#updateModal").modal("show");
+            hideLoading()
         },
         error: function(err){
             console.log(err)
@@ -47,11 +62,12 @@ function updateOne(id){
 }
 
 function deleteOne(id){
-    console.log(id)
+    showLoading();
     $.ajax({
         url:"/api/admin/products/"+id,
         method:"DELETE",
         success: function(data){
+            hideLoading();
             swal({
                 title: data.message
             });
@@ -81,6 +97,7 @@ function pick_image(input) {
   }
 
   function updateAction(id){
+      showLoading();
       var thumbnail = document.querySelector('#updateModal #fileinput').files[0];
       var formData = new FormData();
       formData.append("name",$("#updateModal #product-name input").val());
@@ -95,6 +112,7 @@ function pick_image(input) {
         processData: false,
         contentType: false,
         success: function(data){
+            hideLoading();
             $("#updateModal").modal("hide");
             changeDataAfterUpdate(data.data);
             swal({

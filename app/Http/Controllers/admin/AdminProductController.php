@@ -1,15 +1,18 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\admin;
+
 use App\Product;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Http\Controllers\utility\FileUploadController;
 
-class ProductController extends Controller
+class AdminProductController extends Controller
 {
     public function index()
     {
-        $products = Product::paginate(12);
-        return view("user.product", compact("products"));
+        $products = Product::paginate(15);
+        return view("admin.product", compact("products"));
     }
 
     public function create()
@@ -24,7 +27,7 @@ class ProductController extends Controller
 
     public function show($id)
     {
-        
+        //
     }
 
     public function edit($id)

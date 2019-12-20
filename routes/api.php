@@ -18,6 +18,11 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::group(["prefix"=>"admin"], function(){
-    Route::resource('products', 'ApiAdminProductController');
+    Route::resource('products', 'admin\ApiAdminProductController');
+    // Route::put('products/{id}', 'ApiAdminProductController@update');
+});
+
+Route::group(["prefix"=>"user"], function(){
+    Route::resource('products', 'user\ApiUserProductController');
     // Route::put('products/{id}', 'ApiAdminProductController@update');
 });

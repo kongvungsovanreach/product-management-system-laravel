@@ -6,7 +6,7 @@
     $(".card").click(function(){
       var id = $(this).attr("id");
       $.ajax({
-        url:"/products/"+id,
+        url:"/api/user/products/"+id,
         method:"GET",
         success: function(product){
           $("#product-name").text(product.name);

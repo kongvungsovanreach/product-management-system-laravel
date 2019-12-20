@@ -1,16 +1,16 @@
 <?php
 
-namespace App\Http\Controllers;
-
+namespace App\Http\Controllers\user;
 use App\Product;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
-class AdminProductController extends Controller
+class ProductController extends Controller
 {
     public function index()
     {
-        $products = Product::paginate(15);
-        return view("admin.product", compact("products"));
+        $products = Product::paginate(12);
+        return view("user.product", compact("products"));
     }
 
     public function create()
@@ -25,7 +25,7 @@ class AdminProductController extends Controller
 
     public function show($id)
     {
-        //
+        
     }
 
     public function edit($id)

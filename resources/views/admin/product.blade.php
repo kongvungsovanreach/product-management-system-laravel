@@ -3,10 +3,10 @@
 @section("script")
   <script>
 	$(document).ready(function(){
+		$body = $("body");
 		$(document).on("click",".view-one",function(){
 			var id = $(this).attr("id");
 			viewOne(id);
-			console.log(id)
 		})
 
 		$(document).on("click",".update-one",function(){
