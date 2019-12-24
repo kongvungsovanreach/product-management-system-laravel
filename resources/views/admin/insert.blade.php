@@ -26,21 +26,21 @@
                             <div class="form-group">
                                 {!! csrf_field() !!}
                                 <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
-                                <input type="text" name="name" id="name" placeholder="Product name"/>
+                                <input type="text" name="name" id="name" @if($errors->has('name')) class="error" @endif placeholder="@if($errors->has('name')){{$errors->first("name")}} @else Product Name @endif"/>
                             </div>
                             <div class="form-group">
                                 <label for="email"><i class="zmdi zmdi-email"></i></label>
-                                <input type="text" name="price" id="price" placeholder="Product price"/>
+                                <input type="text" name="price" id="price"  @if($errors->has('name')) class="error" @endif placeholder="@if($errors->has('price')){{$errors->first("price")}} @else Product Price @endif"/>
                             </div>
                             <div class="form-group">
                                 <label for="pass"><i class="zmdi zmdi-lock"></i></label>
-                                <input type="password" name="description" id="description" placeholder="Product description"/>
+                                <input type="text" name="description" id="description"  @if($errors->has('description')) class="error" @endif placeholder="@if($errors->has('description')){{$errors->first("description")}} @else Product Description @endif"/>
                             </div>
                             <div class="form-group form-button">
                                 <input type="submit" name="signup" id="signup" class="form-submit"  value="Import Now"/>
                             </div>
                             <div class="hiddenfile">
-                                <input name="thumbnail" type="file" id="fileinput" onchange="pick_image_insert(this)"/>
+                                <input accept="image/*" name="thumbnail" type="file" id="fileinput" onchange="pick_image_insert(this)"/>
                             </div>
                         </form>
                     </div>

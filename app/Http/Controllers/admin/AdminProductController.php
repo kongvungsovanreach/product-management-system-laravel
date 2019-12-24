@@ -22,7 +22,18 @@ class AdminProductController extends Controller
 
     public function store(Request $request)
     {
-        dd($request);
+        $this->validate($request,[
+            "name"=>"required",
+            "price"=>"numeric|required",
+            "description"=>"required",
+            "thumbnail" => "required"
+        ]);
+        $thumbnail = FileUploadController::uploadSingleFile($request->file("thumbnail"));;
+        $product = new Product();
+        $product->fill($request->all());
+        $product->thumbnail = str_replace("public/", "", $thumbnail);
+        $product->save();
+        return redirect()->back();
     }
 
     public function show($id)

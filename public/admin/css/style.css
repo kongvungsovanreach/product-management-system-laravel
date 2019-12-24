@@ -322,7 +322,7 @@ input {
   display: block;
   border: none;
   border-bottom: 1px solid #999;
-  padding: 6px 30px;
+  padding: 6px 10px;
   font-family: Poppins;
   box-sizing: border-box; }
   input::-webkit-input-placeholder {
@@ -593,4 +593,11 @@ label.valid {
 
 #register-form {
   width: 900px !important;
+}
+
+/* .error::-webkit-input-placeholder, .error::-moz-placeholder,.error::-moz-placeholder .error::-ms-input-placeholder   {
+  color: red !important;
+} */
+.error::placeholder {
+  color: red !important;
 }

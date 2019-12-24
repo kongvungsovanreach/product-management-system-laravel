@@ -58,9 +58,7 @@
       </div>
     </div>
     @endforeach
-    <div id="pagination-div">
-      {{$products->links()}}
-    </div>
+    
     <div class="modal fade" id="modalLargeDefault" tabindex="-1" role="dialog" aria-labelledby="modalLargeDefaultLabel">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -90,6 +88,9 @@
         </div>
       </div>
     </div>
+  </div>
+  <div id="pagination-div">
+    {{$products->links()}}
   </div>
 </div>
 @endsection
