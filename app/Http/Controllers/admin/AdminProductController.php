@@ -22,7 +22,7 @@ class AdminProductController extends Controller
 
     public function store(Request $request)
     {
-        //
+        dd($request);
     }
 
     public function show($id)
