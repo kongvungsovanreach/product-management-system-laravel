@@ -42,4 +42,10 @@ class ProductController extends Controller
     {
         //
     }
+
+    public function ajax_table(){
+        $products = Product::paginate(12);
+        
+        return view("ajax.table", compact("products"))->render();
+    }
 }

@@ -26,3 +26,5 @@ Route::group(["prefix"=>"user"], function(){
     Route::resource('products', 'user\ApiUserProductController');
     // Route::put('products/{id}', 'ApiAdminProductController@update');
 });
+
+Route::get("/ajax-table", "user\ProductController@ajax_table");

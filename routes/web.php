@@ -12,7 +12,8 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $products = App\Product::paginate(12);
+    return view('ajax.index', compact("products"));
 });
 
 Route::resource('products', 'user\ProductController');
