@@ -20,3 +20,6 @@ Route::resource('products', 'user\ProductController');
 Route::group(["prefix"=>"admin"], function(){
     Route::resource('products', 'admin\AdminProductController');
 });
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

@@ -1,4 +1,5 @@
 @extends('layouts.user.master')
+@section("title", "Ajax Home Page")
 @section("script")
 <script>
     function showLoading(){
